@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sprawdzanie długości hasła</title>
+</head>
+<body>
+    <h1>Sprawdź długość hasła</h1>
+    <form id="passwordForm">
+        <label for="password">Podaj hasło:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Sprawdź</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('passwordForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const resultDiv = document.getElementById('result');
+
+            if (password.length >= 8) {
+                resultDiv.textContent = "Hasło jest wystarczająco długie";
+            } else {
+                resultDiv.textContent = "Hasło jest za krótkie";
+            }
+        });
+    </script>
+</body>
+</html>
